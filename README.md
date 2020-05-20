@@ -2,7 +2,7 @@
 1. 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗 10,000개 수집(크롤링)
 2. 전처리 (불용어 제거)
 3. FastText로 워드임베딩 생성 (skipgram, minCount=10)
-4. (ongoing) Term Frequency-Inverse Document Frequency (TF-IDF) 기반으로 Word2Vec 구현
+4. (ongoing) 추가로 Term Frequency-Inverse Document Frequency (TF-IDF) 기반으로 Word2Vec 구현
 5. Nearest neigbors (관련어) 출력
 6. (ongoing) 벡터공간 시각화
 
@@ -34,15 +34,37 @@ for cnt, tw in enumerate(tweet):
 가장 먼저 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗을 크롤링
 이를 위해 GetOldTweet3 라이브러리를 사용하나 크롤링 과정에서 HTTP 429 “Too Many Requests” 에러를 방지하기 위해 MaxTweets를 10,000개로 제한.
 
+```bash
+!pip3 install konlpy    # Python 3.x
+from konlpy.tag import Kkma
+from konlpy.utils import pprint
+kkma = Kkma()
+pprint(kkma.nouns(total[3]))
+for i in range(len(total)):
+  total[i]=" ".join(kkma.nouns(total[i]))
 
+print(total[3])
+```
 
-<p align="center">
-<img src="./img/1.a_1.png" width="400" align='middle'>
-</p>
-For the player's statistics during the season (lower-left box cluster), AtBat(the number of times at bat) and Hits (the number of hits) are highly correlated with Runs (the number of runs). For the player's statistics during the career (upper-right box cluster), all the predictors are highly correlated to each other. 
+## 3. FastText로 워드임베딩 생성 (skipgram, minCount=10)
+- FastText는 Facebook에서 제공하는 라이브러리로 손쉽게 Word Embedding을 생성할 수 있음
+- 특정단어의 주변단어(관련단어)를 구할지 또는 주변단어로 특정단어를 예측할지에 따라 Skipgram vs. Cbow 모델을 택일
 
-Considering the baseball's game rules, these observations are valid.
+```bash
+#3. Fasttext로 워드임베딩 생성 (model='skipgram', minCount=10)
+!pip install fasttext
+import fasttext
 
-If we look at the predictors that are correlated to the salary, CRuns (Number of runs in the career) and CRBI (Number of runs enabled in the career) show relatively high correlation. However, it does not imply causation. There are several possible explanations: (a) A influences B; (b) B influences A; and (c) A and B are influenced by one or more additional variables.
-<br /><br />
-Now let's look at the p-values of the predictors to understand the relationships between the salary and other predictors.
+# Skipgram model :
+model = fasttext.train_unsupervised('/content/drive/My Drive/Colab Notebooks/NLP/4.tweet_analytics/data/output_twcorpus_pp.csv', model='skipgram', minCount=15)
+
+# or, cbow model :
+#model = fasttext.train_unsupervised('data.txt', model='cbow')
+```
+
+## 5. Nearest neigbors (관련어) 출력
+- .get_nearest_neighbors() 함수를 통해 근접단어 10개를 출력
+
+```bash
+model.get_nearest_neighbors('한국')
+```
