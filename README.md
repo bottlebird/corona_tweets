@@ -7,8 +7,8 @@
 6. (ongoing) 벡터공간 시각화
 
 ## 1. 트윗 크롤링
-가장 먼저 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗을 크롤링
-이를 위해 GetOldTweet3 라이브러리를 사용하나 크롤링 과정에서 HTTP 429 “Too Many Requests” 에러를 방지하기 위해 MaxTweets를 10,000개로 제한.
+- 가장 먼저 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗을 크롤링하기 위해 GetOldTweet3 라이브러리를 사용<br />
+- 크롤링 과정에서 HTTP 429 “Too Many Requests” 에러를 방지하기 위해 MaxTweets를 10,000개로 제한<br />
 
 ```bash
 tweetCriteria = got.manager.TweetCriteria().setQuerySearch('코로나19')\
