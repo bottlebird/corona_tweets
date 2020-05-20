@@ -2,9 +2,9 @@
 1. 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗 10,000개 수집(크롤링)
 2. 전처리 (불용어 제거)
 3. FastText로 워드임베딩 생성 (skipgram, minCount=10)
-(ongoing) 4. Term Frequency-Inverse Document Frequency (TF-IDF) 기반으로 Word2Vec 구현
+4. (ongoing) Term Frequency-Inverse Document Frequency (TF-IDF) 기반으로 Word2Vec 구현
 5. Nearest neigbors (관련어) 출력
-(ongoing) 6. 벡터공간 시각화
+6. (ongoing) 벡터공간 시각화
 
 ## 1. 트윗 크롤링
 가장 먼저 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗을 크롤링
