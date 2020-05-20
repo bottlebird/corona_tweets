@@ -1,7 +1,7 @@
 # 코로나 관련 트윗 분석
 1. 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗 10,000개 수집(크롤링)
 2. 전처리 (불용어 제거)
-3. FastText로 워드임베딩 생성 (skipgram, minCount=10)
+3. FastText로 워드임베딩 생성 (skipgram, minCount=15)
 4. (ongoing) 추가로 Term Frequency-Inverse Document Frequency (TF-IDF) 기반으로 Word2Vec 구현
 5. Nearest neigbors (관련어) 출력
 6. (ongoing) 벡터공간 시각화
@@ -43,6 +43,7 @@ print(total[3])
 ## 3. FastText로 워드임베딩 생성 (skipgram, minCount=10)
 - FastText는 Facebook에서 제공하는 라이브러리로 손쉽게 Word Embedding을 생성할 수 있음
 - 중심단어로 주변단어(관련단어)를 구할지 또는 주변단어로 중심단어를 예측할지에 따라 Skipgram vs. Cbow 모델을 택일
+- 여기서는 Skip-gram 모델을 사용하고, 자주 언급되는 단어 (언급 빈도가 높을 수록 중요도가 높다는 가정하에) 위주로 구하기 위해 minCount (최소언급 횟수)를 15로 
 
 ```bash
 #3. Fasttext로 워드임베딩 생성 (model='skipgram', minCount=10)
