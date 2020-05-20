@@ -54,7 +54,7 @@ import fasttext
 model = fasttext.train_unsupervised('/content/drive/My Drive/Colab Notebooks/NLP/4.tweet_analytics/data/output_twcorpus_pp.csv', model='skipgram', minCount=15)
 
 # or, cbow model :
-#model = fasttext.train_unsupervised('data.txt', model='cbow')
+#model = fasttext.train_unsupervised('', model='cbow')
 ```
 
 ## 5. Nearest neigbors (관련어) 출력
