@@ -65,5 +65,5 @@ model.get_nearest_neighbors('한국')
 ```
 
 # 개선사항
-- 크롤링 과정에서 HTTP 429 “Too Many Requests” 'Too Many Request 에러를 회피할 수 있는 방법 모색해 더 많은 트윗양을 수집해 분석
+- 크롤링 과정에서 HTTP 429 “Too Many Requests” 'Too Many Request 에러 회피방법을 모색해 더 많은 트윗양을 수집/분석
 - 전처리 과정에서 불용어 사전을 제작해 무의미한 단어들을 최대한 제거
