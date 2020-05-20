@@ -42,7 +42,7 @@ print(total[3])
 
 ## 3. FastText로 워드임베딩 생성 (skipgram, minCount=10)
 - FastText는 Facebook에서 제공하는 라이브러리로 손쉽게 Word Embedding을 생성할 수 있음
-- 특정단어의 주변단어(관련단어)를 구할지 또는 주변단어로 특정단어를 예측할지에 따라 Skipgram vs. Cbow 모델을 택일
+- 중심단어로 주변단어(관련단어)를 구할지 또는 주변단어로 중심단어를 예측할지에 따라 Skipgram vs. Cbow 모델을 택일
 
 ```bash
 #3. Fasttext로 워드임베딩 생성 (model='skipgram', minCount=10)
