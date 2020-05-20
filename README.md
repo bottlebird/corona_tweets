@@ -5,6 +5,8 @@
 4. (ongoing) 추가로 Term Frequency-Inverse Document Frequency (TF-IDF) 기반으로 Word2Vec 구현
 5. Nearest neigbors (관련어) 출력
 6. (ongoing) 벡터공간 시각화
+7. 개선사항
+8. 
 
 ## 1. 트윗 크롤링
 - 가장 먼저 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗을 크롤링하기 위해 GetOldTweet3 라이브러리를 사용
@@ -64,10 +66,11 @@ model = fasttext.train_unsupervised('/content/drive/My Drive/Colab Notebooks/NLP
 model.get_nearest_neighbors('한국')
 ```
 
-# 개선사항
+## 7. 개선사항
 - 크롤링 과정에서 HTTP 429 “Too Many Requests” 'Too Many Request 에러 회피방법을 모색해 더 많은 트윗양을 수집/분석
 - 전처리 과정에서 불용어 사전을 제작해 무의미한 단어들을 최대한 제거
 
-# 
-- 크롤링 과정에서 HTTP 429 “Too Many Requests” 'Too Many Request 에러 회피방법을 모색해 더 많은 트윗양을 수집/분석
-- 전처리 과정에서 불용어 사전을 제작해 무의미한 단어들을 최대한 제거
+## 8. 참고
+- https://pypi.org/project/GetOldTweets3/
+- https://github.com/facebookresearch/fastText
+- https://konlpy.org/en/latest/
