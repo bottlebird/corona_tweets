@@ -28,12 +28,6 @@ for cnt, tw in enumerate(tweet):
 - 한국어 전처리를 위해 코엔엘파이 라이브러리 사용
 - 조사나 접속사와 같은 단어들뿐만 아니라 명사, 형용사와 같은 단어들 중에서 불용어로 제거하고 싶을 경우, 직접 불용어 사전을 만들어 제거
 
-'-는', '-나',
-
-!pip3 install konlpy    # Python 3.x. 트윗 크롤링
-가장 먼저 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗을 크롤링
-이를 위해 GetOldTweet3 라이브러리를 사용하나 크롤링 과정에서 HTTP 429 “Too Many Requests” 에러를 방지하기 위해 MaxTweets를 10,000개로 제한.
-
 ```bash
 !pip3 install konlpy    # Python 3.x
 from konlpy.tag import Kkma
