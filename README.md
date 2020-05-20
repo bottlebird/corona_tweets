@@ -1,5 +1,5 @@
 # 코로나 관련 트윗 분석
-1. 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗 10,000개 수집(크롤링)
+1. 2020년 5월14일-19일 동안 생성된 '코로나19' 키워드를 가진 트윗 10,000개 수집(크롤링)
 2. 전처리 (불용어 제거)
 3. FastText로 워드임베딩 생성 (skipgram, minCount=15)
 4. (ongoing) 추가로 Term Frequency-Inverse Document Frequency (TF-IDF) 기반으로 Word2Vec 구현
@@ -9,13 +9,13 @@
 8. 참고
 
 ## 1. 트윗 크롤링
-- 가장 먼저 2020년 5월14일-16일 동안 생성된 '코로나19' 키워드를 가진 트윗을 크롤링하기 위해 GetOldTweet3 라이브러리를 사용
+- 가장 먼저 2020년 5월14일-19일 동안 생성된 '코로나19' 키워드를 가진 트윗을 크롤링하기 위해 GetOldTweet3 라이브러리를 사용
 - 크롤링 과정에서 HTTP 429 “Too Many Requests” 에러를 방지하기 위해 MaxTweets를 10,000개로 제한
 
 ```bash
 tweetCriteria = got.manager.TweetCriteria().setQuerySearch('코로나19')\
                                            .setSince("2020-05-14")\
-                                           .setUntil("2020-05-16")\
+                                           .setUntil("2020-05-19")\
                                            .setMaxTweets(10000)
 tweet = got.manager.TweetManager.getTweets(tweetCriteria)
 
